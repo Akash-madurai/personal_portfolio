@@ -1,12 +1,11 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
-import profile from "../assets/profile.png";
 import gmail from "../assets/gmail.png";
 import github from "../assets/github.png";
 import linkedin from "../assets/linkedin.png";
 import { useState , useEffect } from "react";
-import picsart from "../assets/picsart.jpg";
+
 
 const LandingPage = () => {
   const skills = [" Web Developer",'React Developer'];
@@ -94,14 +93,14 @@ const LandingPage = () => {
           className="relative mb-12 md:mb-0"
         > */}
           {/* <motion.img
-            src={picsart}
+            src={profile}
             alt="Akash's profile"
-            className="w-60 h-60 md:w-80 md:h-80 rounded-full object-cover border-8 border-white shadow-2xl md:ml-20"
+            className="w-60 h-60 md:w-80 md:h-80 rounded-full object-cover border-8border-white shadow-2xl md:ml-20"
             // animate={{ y: [0, -15, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
           /> */}
           {/* Glow Effect */}
-          {/* <div className="absolute inset-0 rounded-full bg-amber-200 opacity-20 blur-3xl -z-10"></div>
+          {/* <div className="absolute inset-0 rounded-fullbg-amber-200 opacity-20 blur-3xl -z-10"></div>
         </motion.div> */}
       </div>
     </section>
