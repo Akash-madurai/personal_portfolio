@@ -6,6 +6,8 @@ import html from "../assets/html.png";
 import social from "../assets/social.png";
 import css from "../assets/css.png";
 import tailwind from "../assets/tailwind.png";
+import redux from "../assets/redux.png"
+import uiux from "../assets/uiux.png"
 
 const Resume = () => {
   return (
@@ -76,7 +78,9 @@ const Resume = () => {
             { src: html, name: "HTML" },
             { src: css, name: "CSS" },
             { src: react, name: "React JS" },
+            {src : redux, name:'Redux'},
             { src: tailwind, name: "Tailwind" },
+            {src : uiux, name: 'uiux'},
             { src: social, name: "Git" },
           ].map((skill, index) => (
             <motion.div
