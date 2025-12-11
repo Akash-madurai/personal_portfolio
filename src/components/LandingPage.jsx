@@ -76,8 +76,8 @@ const LandingPage = () => {
             className="mt-8 flex justify-center md:justify-start"
           >
             <a
-              href="/AKASH_RESUME.pdf"
-              download="Akash_resume.pdf"
+              href="/AKASH M RESUME.pdf"
+              download="AKASH M RESUME.pdf"
               className="flex items-center gap-2 px-6 py-3 bg-amber-500 text-white font-semibold rounded-full shadow-lg hover:bg-amber-600 hover:shadow-xl transition transform hover:scale-105"
             >
               Resume / CV <Download size={20} />
