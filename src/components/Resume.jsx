@@ -6,8 +6,11 @@ import html from "../assets/html.png";
 import social from "../assets/social.png";
 import css from "../assets/css.png";
 import tailwind from "../assets/tailwind.png";
-import redux from "../assets/redux.png"
-import uiux from "../assets/uiux.png"
+import redux from "../assets/redux.png";
+import uiux from "../assets/uiux.png";
+import mongodb from "../assets/mongodb.png";
+import Express from "../assets/Express.png";
+import nodejs from "../assets/nodejs.png";
 
 const Resume = () => {
   return (
@@ -80,6 +83,9 @@ const Resume = () => {
             { src: react, name: "React JS" },
             {src : redux, name:'Redux'},
             { src: tailwind, name: "Tailwind" },
+            {src: mongodb, name: "MongoDB"},
+            {src: nodejs, name: "Node Js"},
+            {src: Express, name: "Express js"},
             {src : uiux, name: 'uiux'},
             { src: social, name: "Git" },
           ].map((skill, index) => (

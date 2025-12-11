@@ -8,7 +8,7 @@ import { useState , useEffect } from "react";
 
 
 const LandingPage = () => {
-  const skills = [" Web Developer",'React Developer'];
+  const skills = [" Web Developer",'Fullstack Developer','React Developer'];
   const [change,setChange] = useState(0);
 
   useEffect(() => {
