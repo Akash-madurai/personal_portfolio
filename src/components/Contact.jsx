@@ -1,10 +1,53 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin,Linkedin,Github } from "lucide-react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 
 const Contact = () => {
   const currentYear = new Date().getFullYear();
 
+  const [formData , setFormData] = useState({
+    name:"",
+    email:"",
+    message:""
+  })
+
+  const [status, setStatus] = useState('')
+
+  const handleChange = (e) => {
+    setFormData({...formData,[e.target.name]: e.target.value})
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    emailjs
+  .send( 
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    formData,
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  )
+  .then(() => {
+    setStatus("success");
+    setFormData({
+      name: "",
+      email: "",
+      message: ""
+    });
+    
+    setTimeout(() => {
+      setStatus('')
+    },2000)
+
+  })
+  .catch(() => {
+    setStatus("error");
+  });
+
+  }
+  
   return (
     <section className="relative py-16 bg-gradient-to-br from-amber-100 via-white to-amber-100 overflow-hidden">
       <div className="absolute top-10 left-10 w-32 h-32"></div>
@@ -60,13 +103,16 @@ const Contact = () => {
           transition={{ duration: 1 }}
           className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl p-8"
         >
-          <form action="submit" className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-amber-800 font-medium mb-1">Name</label>
               <input
                 type="text"
+                name="name"
                 placeholder="Your name"
+                value={formData.name}
                 className="w-full px-4 py-3 rounded-xl border border-amber-200 bg-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+                onChange={handleChange}
               />
             </div>
 
@@ -74,8 +120,11 @@ const Contact = () => {
               <label className="block text-amber-800 font-medium mb-1">Email</label>
               <input
                 type="email"
+                name="email"
                 placeholder="you@example.com"
+                value={formData.email}
                 className="w-full px-4 py-3 rounded-xl border border-amber-200 bg-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+                onChange={handleChange}
               />
             </div>
 
@@ -83,8 +132,11 @@ const Contact = () => {
               <label className="block text-amber-800 font-medium mb-1">Message</label>
               <textarea
                 placeholder="Leave a message"
+                name="message"
                 rows="4"
+                value={formData.message}
                 className="w-full px-4 py-3 rounded-xl border border-amber-200 bg-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+                onChange={handleChange}
               />
             </div>
 
@@ -96,10 +148,14 @@ const Contact = () => {
             >
               Send 
             </motion.button>
+            
           </form>
         </motion.div>
       </div>
-
+       <div className="mx-auto mt-10 flex justify-center">
+          {status === "success" && ( <p className="text-lg ml-3 text-green-600 bg-white p-2 rounded-2xl "> Message Sent ✅</p>)}
+          {status === 'error' && (<p className="text-lg text-red-600  bg-white p-2 rounded-2xl"> Something went wrong</p>) }
+        </div>      
       <div className="text-center font-medium text-amber-700 mt-14 relative z-10">
         &copy; {currentYear} rights reserved by Akash
       </div>
